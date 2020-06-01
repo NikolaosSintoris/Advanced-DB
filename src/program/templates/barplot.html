@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+	<script src="http://d3js.org/d3.v4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/barplot.css">
+</head>
+<body>
+	<button onclick="goBack()" class="goback-btn">
+		<span class="tooltiptext">Go Back</span>
+	</button>
+	<div id="plot"></div>
+	<link rel="stylesheet" type="text/css" href="/static/css/barplot.css">
+    <script src="/static/javascript/barplot.js"></script>
+    <script src="/static/javascript/d3_tip.js"></script>
+    <script type="text/javascript">
+	    main(JSON.parse('{{data|tojson|safe}}'), JSON.parse('{{header|tojson|safe}}'), JSON.parse('{{max_measurement|tojson|safe}}'), JSON.parse('{{country_map|tojson|safe}}'), JSON.parse('{{indicator_map|tojson|safe}}'));
+	    function goBack() {
+			window.history.back()
+		}
+	</script>
+</body>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/static/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/static/external_libraries/chosen_v1.8.7/chosen.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="/static/external_libraries/chosen_v1.8.7/chosen.jquery.js" type="text/javascript"></script>
+	<script src="/static/javascript/home.js"></script>
+</head>
+<body>
+
+<h2>Data Visualization Application</h2>
+<p>Navigate through tabs, to choose the plot's properties.</p>
+
+<div class="tab">
+	<button class="tablinks" name="selectPlot">Select the Plot Type</button>
+	<button class="tablinks" name="editPlot">Add Visualization Data</button>
+	<button class="tablinks" name="selectYearRange">Select the Year Range</button>
+	<button class="tablinks" name="selectGrouping">Select Grouping Options</button>
+	<button id="submitButton" class="submitButton">Submit</button>
+</div>
+<div id="selectPlot" class="tabcontent">
+	<br>
+	<div style="margin: 0 auto; width: 660px;" class="cc-selector">
+		<input checked="checked" id="timeplot" type="radio" name="plot" value="timeplot" />
+		<label style="background-image:url(/static/images/timeplot.png);" class="drinkplot-cc timeplot" for="timeplot"></label>
+		<input id="barplot" type="radio" name="plot" value="barplot" />
+		<label style="background-image:url(/static/images/barplot.jpg);" class="drinkplot-cc barplot"for="barplot"></label>
+		<input id="scatterplot" type="radio" name="plot" value="scatterplot" />
+		<label style="background-image:url(/static/images/scatterplot.png);" class="drinkplot-cc scatterplot"for="scatterplot"></label>
+		<pre>         Time Line                    Bar Chart                Scatter Plot</pre>
+	</div>
+</div>
+
+<div id="editNonScatter" class="tabcontent">
+	<div><br>
+		<div class="styled-select">
+			<select id="countrySelect">
+				<option style="display:none" value="Add Country" selected> Add Country </option>
+				<option value="CHE">Switzerland</option>
+				<option value="DEU">Germany</option>
+				<option value="DNK">Denmark</option>
+				<option value="ESP">Spain</option>
+				<option value="FRA">France</option>
+				<option value="GBR">United Kingdom</option>
+				<option value="GRC">Greece</option>
+				<option value="ITA">Italy</option>
+				<option value="NLD">Netherlands</option>
+				<option value="SWE">Sweden</option>
+			</select>
+		</div>
+		<div class="hidden isCHE country-div" value="CHE"><hr>
+			<pre class="country-text">   Switzerland </pre>
+			<button id="removeCHEButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isCHE" data-placeholder="Choose an indicator..." multiple class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+		<div class="hidden isDEU country-div" value="DEU"><hr>
+			<pre class="country-text">   Germany </pre>
+			<button id="removeDEUButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isDEU" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+		<div class="hidden isDNK country-div" value="DNK"><hr>
+			<pre class="country-text">   Denmark </pre>
+			<button id="removeDNKButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isDNK" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>	
+		<div class="hidden isESP country-div" value="ESP"><hr>
+			<pre class="country-text">   Spain </pre>
+			<button id="removeESPButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isESP" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+		<div class="hidden isFRA country-div" value="FRA"><hr>
+			<pre class="country-text">   France </pre>
+			<button id="removeFRAButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isFRA" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+		<div class="hidden isGBR country-div" value="GBR"><hr>
+			<pre class="country-text">   United Kingdom </pre>
+			<button id="removeGBRButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isGBR" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+		<div class="hidden isGRC country-div" value="GRC"><hr>
+			<pre class="country-text">   Greece </pre>
+			<button id="removeGRCButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isGRC" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+		<div class="hidden isITA country-div" value="ITA"><hr>
+			<pre class="country-text">   Italy </pre>
+			<button id="removeITAButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isITA" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+		<div class="hidden isNLD country-div" value="NLD"><hr>
+			<pre class="country-text">   Netherlands </pre>
+			<button id="removeNLDButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isNLD" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+		<div class="hidden isSWE country-div" value="SWE"><hr>
+			<pre class="country-text">   Sweden </pre>
+			<button id="removeSWEButton" class="remove-btn">
+				<span class="tooltiptext">Remove</span>
+			</button>
+			<select id="isSWE" multiple data-placeholder="Choose an indicator..." class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+	</div><br>
+</div>
+
+<div id="editScatter" class="tabcontent"><br>
+	<div style="display:inline-flex;">
+		<div>
+			<select id="scatterCountry" data-placeholder="Choose a country..." multiple class="chosen-select">
+				<option value="CHE">Switzerland</option>
+				<option value="DEU">Germany</option>
+				<option value="DNK">Denmark</option>
+				<option value="ESP">Spain</option>
+				<option value="FRA">France</option>
+				<option value="GBR">United Kingdom</option>
+				<option value="GRC">Greece</option>
+				<option value="ITA">Italy</option>
+				<option value="NLD">Netherlands</option>
+				<option value="SWE">Sweden</option>
+			</select>
+		</div>
+		<div>
+			<select id="scatterIndicator" data-placeholder="Choose an indicator..." multiple class="chosen-select">
+				<option value="TX.VAL.MRCH.RS.ZS">Merchandise exports by the reporting economy, residual (% of total merchandise exports)</option>
+				<option value="TM.VAL.MRCH.RS.ZS">Merchandise imports by the reporting economy, residual (% of total merchandise imports)</option>
+				<option value="SP.URB.TOTL.IN.ZS">Urban population (% of total population)</option>
+				<option value="SP.POP.TOTL.MA.ZS">Population, male (% of total population)</option>
+				<option value="SP.POP.TOTL.FE.ZS">Population, female (% of total population)</option>
+				<option value="SP.POP.DPND.YG">Age dependency ratio, young (% of working-age population)</option>
+				<option value="MS.MIL.XPND.GD.ZS">Military expenditure (% of GDP)</option>
+				<option value="EN.URB.LCTY.UR.ZS">Population in the largest city (% of urban population)</option>
+				<option value="SP.POP.2529.MA.5Y">Population ages 25-29, male (% of male population)</option>
+				<option value="SP.POP.2529.FE.5Y">Population ages 25-29, female (% of female population)</option>
+			</select>
+		</div>
+	</div><br><br>
+</div>
+
+<div id="selectYearRange" class="tabcontent"><br>
+	<div style="margin: 0 auto; width:50%;">
+		<p style="margin: 0 auto;text-align:center;">
+			<label for="yearRange">Year range:</label>
+			<input type="text" id="yearRange" class="year-text" readonly>
+		</p><br>
+		<div style="margin: 0 auto; width:50%;" id="slider"></div><br>
+	</div>
+</div>
+
+<div id="selectGrouping" class="tabcontent"><br>
+	<div>
+		<input type="checkbox" id="groupingBox" name="groupingBox">
+		<label for="groupingBox"> Group Data </label><br>
+	</div><br>
+	
+	<div id="doGroup" class="hidden"><hr>
+		<div>
+			<p>Group Data by:</p>
+			<input checked type="radio" id="FiveYearPeriod" name="yearPeriod" value="FiveYearPeriod">
+			<label for="FiveYearPeriod">Half Decades (5 years)</label><br>
+			<input type="radio" id="TenYearPeriod" name="yearPeriod" value="TenYearPeriod">
+			<label for="TenYearPeriod">Decades (10 years)</label><br><br><hr>
+		</div>
+		
+		<div>
+			<p>Choose the Measurements Type:</p>
+			<input checked type="radio" id="AVG" name="aggrType" value="AVG">
+			<label for="AVG">Average Measurements</label><br>
+			<input type="radio" id="MAX" name="aggrType" value="MAX">
+			<label for="MAX">Maximum Measurements</label><br>
+			<input type="radio" id="MIN" name="aggrType" value="MIN">
+			<label for="MIN">Minimum Measurements</label>
+		</div>
+	</div>
+</div>
+</body>
+</html> 

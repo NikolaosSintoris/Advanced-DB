@@ -1,0 +1,36 @@
+.chart {
+	height: 500px;
+	position: relative;
+}
+
+.tt {
+	background-color: #fff;
+	padding: 8px;
+	outline: 1px solid #ccc;
+	display: none;
+	position: absolute;
+}
+.goback-btn{
+	position: relative;
+	display: inline-block;
+	border:none;
+	width: 29px;
+	height: 29px;
+	background: url(/static/images/goback.png)
+}
+.goback-btn .tooltiptext {
+	visibility: hidden;
+	width: 100px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+.goback-btn:hover .tooltiptext {
+	visibility: visible;
+}

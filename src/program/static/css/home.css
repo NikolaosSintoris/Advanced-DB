@@ -1,0 +1,177 @@
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	border: 1px solid #555;
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+.tab button.submitButton{
+	background-color: #008000;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+.tab button.submitButton:hover{
+	background-color: #006600;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #555;
+	border-top: none;
+	-webkit-animation: fadeEffect 0.8s;
+	animation: fadeEffect 0.8s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+/*Classes for plot type selection div*/
+.cc-selector input{
+	margin:0;padding:0;
+	-webkit-appearance:none;
+		-moz-appearance:none;
+			appearance:none;
+}
+.drinkplot-cc, .cc-selector input:active +.drinkplot-cc{opacity: 1;}
+.drinkplot-cc, .cc-selector input:checked +.drinkplot-cc{
+	-webkit-filter: none;
+		-moz-filter: none;
+			filter: none;
+				border: 5px solid #555;
+}
+.drinkplot-cc{
+	cursor:pointer;
+	background-size:contain;
+	background-repeat:no-repeat;
+	display:inline-block;
+	width:200px;height:120px;
+	border: 5px solid transparent;
+	-webkit-transition: all 100ms ease-in;
+		-moz-transition: all 100ms ease-in;
+			transition: all 100ms ease-in;
+	-webkit-filter: brightness(1.1) grayscale(.9) opacity(.6);
+		-moz-filter: brightness(1.1) grayscale(.9) opacity(.6);
+			filter: brightness(1.1) grayscale(.9) opacity(.6);
+}
+.drinkplot-cc:hover{
+	-webkit-filter: brightness(1.2) grayscale(.5) opacity(1);
+		-moz-filter: brightness(1.2) grayscale(.5) opacity(1);
+			filter: brightness(1.2) grayscale(.5) opacity(1);
+}
+
+/*Classes for year range selection div*/
+#slider {
+	margin: 10px;
+}
+.ui-slider-horizontal {
+	height: 8px;
+	width: 400px;
+}
+.ui-slider .ui-slider-handle {
+	height: 15px;
+	width: 5px;
+	padding-left: 5px;
+}
+.year-text{
+	border:0;
+	color:#008000;
+	font-weight:bold;
+	font-size: 14px;
+}
+
+/*Classes for time/bar plot type, country&indicator selection div*/
+.country-div{
+	width:800px;
+	padding: 4px;
+}
+.hidden {
+	display: none;
+}
+.country-text{
+	font-size: 16px;
+}
+.styled-select {
+	width: 200px;
+	height: 30px;
+	overflow: hidden;
+	background: url(/static/images/arrow.jpg) no-repeat right #f1f1f1;
+	border: 1px solid #ccc;
+}
+.styled-select select {
+	background: transparent;
+	width: 200px;
+	padding: 5px;
+	font-size: 16px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	height: 34px;
+	-webkit-appearance: none;
+}
+.styled-select select option{
+	background: #f1f1f1;
+}
+.remove-btn{
+	position: relative;
+	display: inline-block;
+	border:none;
+	float:left;
+	width: 29px;
+	height: 29px;
+	background: url(/static/images/delete.png)
+}
+.remove-btn .tooltiptext {
+	visibility: hidden;
+	width: 100px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+.remove-btn:hover .tooltiptext {
+	visibility: visible;
+}
+.chosen-select {
+	width: 350px;
+}
+.chosen-select-limit {
+	width: 350px;
+}
