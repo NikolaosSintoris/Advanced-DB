@@ -1,0 +1,11 @@
+﻿Id,Name,Code
+0,"Merchandise exports by the reporting economy, residual (% of total merchandise exports)",TX.VAL.MRCH.RS.ZS
+1,"Merchandise imports by the reporting economy, residual (% of total merchandise imports)",TM.VAL.MRCH.RS.ZS
+2,Urban population (% of total population),SP.URB.TOTL.IN.ZS
+3,"Population, male (% of total population)",SP.POP.TOTL.MA.ZS
+4,"Population, female (% of total population)",SP.POP.TOTL.FE.ZS
+5,"Age dependency ratio, young (% of working-age population)",SP.POP.DPND.YG
+6,Military expenditure (% of GDP),MS.MIL.XPND.GD.ZS
+7,Population in the largest city (% of urban population),EN.URB.LCTY.UR.ZS
+8,"Population ages 25-29, male (% of male population)",SP.POP.2529.MA.5Y
+9,"Population ages 25-29, female (% of female population)",SP.POP.2529.FE.5Y
